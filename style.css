@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root{
+    --fuentePrincipal: 'Poppins', sans-serif;
+    --blurple: #4834d4;
+    --sunflower: #F79F1F;
+    --download: #0097e6;
+    --wet-asphalt: #34495e;
+    --darken: #252525;
+    --white: #FAFAFA;
+    --gradient: 45deg, 
+                #f1c40f,
+                #e67e22,
+                #e74c3c,
+                #2980b9,
+                #2ecc71
+    ;
+    /* Font Sizes */
+    --step--2: clamp(0.6076rem, 0.5686rem + 0.1954vi, 0.72rem);
+    --step--1: clamp(0.7292rem, 0.6697rem + 0.2971vi, 0.9rem);
+    --step-0: clamp(0.875rem, 0.788rem + 0.4348vi, 1.125rem);
+    --step-1: clamp(1.05rem, 0.9261rem + 0.6196vi, 1.4063rem);
+    --step-2: clamp(1.26rem, 1.0868rem + 0.8658vi, 1.7578rem);
+    --step-3: clamp(1.512rem, 1.2736rem + 1.1918vi, 2.1973rem);
+    --step-4: clamp(1.8144rem, 1.4902rem + 1.6212vi, 2.7466rem);
+    --step-5: clamp(2.1773rem, 1.7404rem + 2.1843vi, 3.4332rem);
+}
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+}
+*{
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+body{
+    font-size: var(--step-0);
+    font-family: var(--fuentePrincipal);
+    min-height: 100vh;
+    background-color: #ecf0f1;
+}
+img, picture, svg, video{
+    display: block;
+    max-width: 100%;
+}
+input, textarea, button, select{
+    font: inherit;
+}
+h1, h2, h3, h4, h5{
+    line-height: 1.1;
+    margin-block: 2rem;
+    text-wrap: balance;
+}
+h1{
+    font-size: 32px;
+    font-weight: 700;
+}
+h2{
+    font-size: 28px;
+    font-weight: 600;
+}
+h3{
+    font-size: 24px;
+    font-weight: 500;
+}
+section{
+    padding-block: 2rem;
+}
+p{
+    text-wrap: pretty;
+    letter-spacing: 1.3px;
+}
+nav{
+    display: flex;
+    gap: 1rem;
+}
+/* Utilidades */
+.contenedor{
+    width: min(120rem, 90%);
+    margin-inline: auto;
+}
+.grid{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit,minmax(min(400px, 100%), 1fr));
+}
+.text-center{
+    text-align: center;
+}
+/* Links */
+a{
+    --transition-duration: 300ms;
+    transition: color var(--transition-duration), text-decoration-color var(--transition-duration);
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--blurple);
+    text-decoration-style: solid; /*Solid, dashed, dotted, wavy */
+    text-decoration-line: underline;
+
+    text-underline-offset: .5rem;
+    color: var(--blurple);
+}
+a:hover, a:focus{
+    color: var(--download);
+    text-decoration-color: var(--download);
+}
+/* Box shadows */
+.box{
+    background-color: #FAFAFA;
+    padding: 1em;
+    border-radius: .5em;
+}
+.shadow{
+    --box-color-primary: rgba(0,0,0,.5);
+    --box-color-secondary: #f1c40f;
+    /* box-shadow: x1 - y1 - blur-radius - spred blur - color */
+    /* Spred blue: Indica a que distancia va a empezar del blur del elemento */
+    box-shadow: 5px 5px 3px red;
+
+    /* Al interior del elemento con inset */
+    /* box-shadow: inset - x1 - y1 - blur-radius - spred blur - color */
+    box-shadow: inset 0 0 3px var(--box-color-primary);
+
+    /* Multiples box shadows */
+    /* box-shadow: 3px 3px 5px var(--box-color-primary),
+                -3px -3px 5px var(--box-color-secondary)
+    ; */
+}
+/* Animate titles with gradient */
+.bg-gradient{
+    min-height: 200px;
+    background-image: linear-gradient(var(--gradient));
+    background-size: 400%;
+    animation: bg-animate 20s linear infinite alternate;
+    display: grid;
+    place-items: center;
+    border-radius: .5rem;
+}
+.bg-gradient .content{
+    background-color: #FAFAFA;
+    padding: 1rem 2rem;
+    max-width: 90%;
+    border-radius: .5rem;
+}
+.bg-gradient-title{
+    background-image: linear-gradient(var(--gradient));
+    background-size: 400%;
+    background-clip: text;
+    color: transparent;
+    line-height: 0.8;
+    animation: bg-animate 10s linear infinite alternate-reverse;
+}
+@keyframes bg-animate {
+    from{
+        background-position: left;
+    }
+    to{
+        background-position: right;
+    }
+}
+.custom-search{
+    --active: #1e90ff;
+    --normal: #999999;
+    --normal-50: #f7f7f7;
+    position: relative;
+    border: none;
+    max-width: 400px;
+    margin-top: 2rem;
+}
+.custom-search__input{
+    border: 1px solid var(--normal);
+    min-height: 40px;
+    border-radius: .225rem;
+    padding-inline: 1rem;
+    width: 100%;
+    background-color: var(--normal-50);
+}
+.custom-search__input:focus{
+    outline: none;
+    border: 1px solid var(--active);
+}
+.custom-search__label{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--normal);
+    transition: transform 150ms ease;
+}
+.custom-search__input:focus + .custom-search__label {
+    transform: translate(-50%, -200%);
+    color: var(--active);
+}
+/* Animated card */
+.card-animated{
+    position: relative;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0 0 0);
+    overflow: hidden;
+    border-radius: 20px;
+}
+.card-animated::before{
+    content: '';
+    position: absolute;
+    width: 140px;
+    height: 140%;
+    background: linear-gradient(var(--gradient));
+    box-shadow: 0 0 20px rgb(8, 8, 8);
+    animation: card 5s linear infinite;
+}
+.card-animated::after{
+    content: '';
+    position: absolute;
+    inset: 10px;
+    background-color: #f5f6fa;
+    border-radius: 15px;
+}
+@keyframes card {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.main{
+    margin-block: 2rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit,minmax(min(20rem, 100%), 1fr));
+}
+.card-page{
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background: linear-gradient(45deg, var(--wet-asphalt), var(--darken));
+    min-height: 15rem;
+    height: auto;
+    transition: transform 120ms ease-in;
+}
+.card-page:hover{
+    box-shadow: 0 0 0.5rem .0375rem var(--download);
+    transform: translateY(-5px);
+}
+.card-page a{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    display: grid;
+    place-items: center;
+    color: var(--white);
+    font-size: var(--step-1);
+}
