@@ -258,3 +258,35 @@ a:hover, a:focus{
     color: var(--white);
     font-size: var(--step-1);
 }
+.container-black{
+    background-color: var(--darken);
+    min-height: 200px;
+    padding: 1rem;
+    border-radius: .5rem;
+    background-image: url('https://res.cloudinary.com/dypooembo/image/upload/v1713284188/pexels-pixabay-259191_ndois4.jpg');
+    background-position: center;
+    background-size: cover;
+}
+.glassmorphism{
+    min-height: 100px;
+    padding: 1rem;
+    border-radius: .5rem;
+    
+    /* Primera forma */
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* Segunda forma */
+    background-color: rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* Tercera forma */
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-image: linear-gradient(120deg, rgba(255,255,255,0.3), rgba(0,0,0,0.2));
+    background-size: 30px;
+}
+.glassmorphism :is(h3,p){
+    color: var(--white);
+}
