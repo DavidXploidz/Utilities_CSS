@@ -162,16 +162,17 @@ a:hover, a:focus{
         background-position: right;
     }
 }
-.custom-search{
+.field-animated{
     --active: #1e90ff;
     --normal: #999999;
     --normal-50: #f7f7f7;
+    --transition: 150ms ease-in-out;
     position: relative;
     border: none;
     max-width: 400px;
     margin-top: 2rem;
 }
-.custom-search__input{
+.field-animated__input{
     border: 1px solid var(--normal);
     min-height: 40px;
     border-radius: .225rem;
@@ -179,21 +180,24 @@ a:hover, a:focus{
     width: 100%;
     background-color: var(--normal-50);
 }
-.custom-search__input:focus{
+.field-animated__input:focus{
     outline: none;
     border: 1px solid var(--active);
 }
-.custom-search__label{
+.field-animated__label{
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 0;
+    transform: translate(10%, -50%);
     color: var(--normal);
-    transition: transform 150ms ease;
+    transition: transform var(--transition), color var(--transition), opacity var(--transition);
 }
-.custom-search__input:focus + .custom-search__label {
-    transform: translate(-50%, -200%);
+.field-animated__input:focus + .field-animated__label {
+    transform: translate(10%, -200%);
     color: var(--active);
+}
+.field-animated__input:valid:not(:focus) + .field-animated__label {
+    opacity: 0;
 }
 /* Animated card */
 .card-animated{
