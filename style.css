@@ -196,8 +196,14 @@ a:hover, a:focus{
     transform: translate(10%, -200%);
     color: var(--active);
 }
-.field-animated__input:valid:not(:focus) + .field-animated__label {
+/* Opcion que se oculte */
+/* .field-animated__input:valid:not(:focus) + .field-animated__label {
     opacity: 0;
+} */
+/* Opcion que se quede arriba */
+.field-animated__input:valid:not(:placeholder-shown) + .field-animated__label {
+    transform: translate(10%, -200%);
+    color: var(--active);
 }
 /* Animated card */
 .card-animated{
